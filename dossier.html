@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossier - SAÉ S1.03</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">SAÉ S1.03</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="projet.html">Projet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="vm.html">Virtualisation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="webserver.html">Serveur Web</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="dossier.html">Dossier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gantt.html">Gantt</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container mt-5 pt-5">
+  <h1 class="text-center mb-5 section-title">Dossier d'étude - SAÉ S1.03</h1>
+  <p class="lead text-center mb-5">Ce dossier présente les choix techniques et les justifications pédagogiques adoptés pour la réalisation du projet SAÉ S1.03 : Virtualisation et déploiement web. Chaque décision a été prise en fonction des objectifs d'apprentissage pour des étudiants en première année d'informatique.</p>
+
+  <h2 class="mb-4">Contexte et objectifs pédagogiques</h2>
+  <p>La SAÉ S1.03 nous a permis de découvrir et de pratiquer des notions essentielles en informatique : la virtualisation, l’administration système et la mise en ligne d’un site web. L’objectif principal était d’apprendre à utiliser un environnement Linux, à installer des services réseau et à comprendre le déploiement d’un site web. Cette SAÉ nous a également aidé à développer des compétences importantes comme la résolution de problèmes, l’organisation du travail et la rédaction technique.</p>
+
+  <h2 class="mt-5 mb-4">Choix de la virtualisation : VirtualBox et Ubuntu 22.04 LTS</h2>
+  <p>Pour réaliser le projet, nous avons utilisé VirtualBox comme hyperviseur. C’est un logiciel gratuit, simple à prendre en main et sûr, ce qui est parfait pour des étudiants débutants. Son interface graphique nous a permis de manipuler facilement la machine virtuelle sans risque pour l’ordinateur principal.</p>
+  <p>Nous avons choisi Ubuntu 22.04 LTS comme système d’exploitation invité pour sa stabilité et son support long terme. Cette distribution est adaptée aux débutants car elle est bien documentée et propose tous les outils nécessaires pour un environnement de développement. Elle est également représentative des systèmes utilisés sur des serveurs Linux réels.</p>
+  <p>La configuration de la machine virtuelle (4GB RAM, 40GB disque dynamique, réseau NAT) nous a permis d’avoir un environnement fonctionnel tout en restant compatible avec les ressources disponibles sur la machine hôte.</p>
+
+  <h2 class="mt-5 mb-4">Installation et configuration du serveur web Apache</h2>
+  <p>Nous avons installé Apache comme serveur web pour héberger notre site. L’installation s’effectue avec la commande : <code class="font-monospace">sudo apt update && sudo apt install apache2</code>. Apache est un serveur web fiable et largement utilisé, ce qui nous a permis de nous familiariser avec des outils professionnels dès la première année.</p>
+  <p>Nous avons conservé la configuration par défaut d’Apache, suffisante pour ce projet. Les fichiers du site ont été placés dans <code class="font-monospace">/var/www/html/</code>, et le site est accessible via <code class="font-monospace">http://localhost/</code>. Cette configuration simple nous a permis de nous concentrer sur la compréhension des concepts plutôt que sur les détails avancés du serveur.</p>
+  <p>Le déploiement des fichiers via WebStorm nous a permis de comprendre comment synchroniser le code local avec la machine virtuelle et de pratiquer la gestion des fichiers sur un serveur distant.</p>
+
+  <div class="row mt-4 mb-5">
+    <div class="col-md-6">
+      <figure class="text-center">
+        <img src="images/vm.png" alt="Configuration VM" class="img-fluid shadow rounded">
+        <figcaption class="mt-2">Configuration de la machine virtuelle Ubuntu dans VirtualBox</figcaption>
+      </figure>
+    </div>
+    <div class="col-md-6">
+      <figure class="text-center">
+        <img src="images/apache-status.png" alt="Configuration Apache" class="img-fluid shadow rounded">
+        <figcaption class="mt-2">Installation et configuration d'Apache2 avec Virtual Host</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h2 class="mt-5 mb-4">Développement du site web : Bootstrap 5 et approche modulaire</h2>
+  <p>Pour créer le site, nous avons utilisé Bootstrap 5, qui permet de construire un site responsive facilement. Cela nous a aidé à nous concentrer sur la structure et le contenu plutôt que sur le CSS complexe. Les couleurs et les polices choisies (violet, bleu, jaune ; Montserrat et Fira Code) rendent le site agréable à lire tout en conservant une présentation claire.</p>
+  <p>Le site est organisé en pages séparées pour chaque partie du projet, ce qui facilite la lecture et la maintenance. Cette approche montre l’importance de structurer notre travail et de respecter les bonnes pratiques dès le début.</p>
+
+  <h2 class="mt-5 mb-4">Cohérence pédagogique et compétences acquises</h2>
+  <p>L’ensemble des outils choisis nous a permis de découvrir un environnement complet : VirtualBox pour pratiquer la virtualisation, Ubuntu pour apprendre à utiliser Linux, Apache pour comprendre le serveur web et Bootstrap pour construire un site responsive. Chaque outil a été introduit progressivement pour faciliter l’apprentissage.</p>
+  <p>Ce projet nous a permis de développer à la fois des compétences techniques (installation, configuration, déploiement) et professionnelles (organisation, documentation, analyse des contraintes techniques).</p>
+
+  <h2 class="mt-5 mb-4">Commentaires sur la vidéo pédagogique</h2>
+  <blockquote class="blockquote border-start border-warning border-4 ps-3">
+    <p class="mb-0">The video presentation aims to explain the fundamental principles of virtualization to
+a technical audience. The oral delivery was focused on three main pillars :
+Definition : Explaining how a hypervisor allows multiple Operating Systems to
+run simultaneously on a single physical machine.
+Advantages : Highlighting cost reduction, environment isolation for developers,
+and the ability to test different OS (like Ubuntu) without risking the host system.
+Drawbacks :Discussing resource overhead (CPU/RAM consumption) and poten-
+tial latency compared to native installations.
+Cette séquence nous a permis de mobiliser le vocabulaire technique lié à l’architecture
+système (host, guest, hypervisor, overhead, scalability) tout en travaillant sur la clarté
+de l’explication orale. La mise en forme "vidéo YouTube" nous a imposé une rigueur
+de synthèse pour rendre le sujet accessible et dynamique. Il nous a permis de mieux
+comprendre le fonctionnement d’une machine virtuelle.</p>
+  </blockquote>
+</main>
+
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <p>&copy; 2025 IUT Paris Rives de Seine – Département Informatique</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

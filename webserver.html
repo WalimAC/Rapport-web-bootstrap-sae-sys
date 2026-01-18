@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAÉ S1.03 - Serveur Web</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">SAÉ S1.03</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="projet.html">Projet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="vm.html">Virtualisation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="webserver.html">Serveur Web</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dossier.html">Dossier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gantt.html">Gantt</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container mt-5 pt-5">
+  <h1 class="text-center mb-5">Serveur Web</h1>
+  <p class="lead text-center mb-4">Installation Apache/Nginx et déploiement des fichiers HTML/CSS.</p>
+
+  <div class="row mb-5">
+    <div class="col-md-6">
+      <h3>Installation du serveur Apache</h3>
+      <p>Commandes d'installation et démarrage du service Apache :</p>
+      <div class="bg-light p-3 rounded mb-3">
+        <code class="font-monospace small">sudo apt update<br>sudo apt upgrade -y<br>sudo apt install apache2 -y<br>sudo systemctl enable apache2<br>sudo systemctl start apache2<br>sudo systemctl status apache2</code>
+      </div>
+      <p>Configuration du Virtual Host :</p>
+      <div class="bg-light p-3 rounded">
+        <code class="font-monospace small">
+            Virtualhost configuration:
+*:80
+fd17:625c: f037:2:00:27ff:fe21:cc3b (/etc/apachez/sites-enabled/000-default.conf:1)
+ServerRoot: "/etc/apache2"
+Main DocumentRoot: "/var/www/html"
+Main ErrorLog: "/var/log/apache2/error log"
+Mutex default: dir="/var/run/apache2/" mechanism=default
+Mutex watchdog-callback: using_defaults PidFile: "/var/run/apache2/apache2.pid"
+Define: DUMP_VHOSTS
+Define: DUMP_RUN_CFG
+User: name="www-data" id=33
+Group: name="www-data" id=33
+</code>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Déploiement HTML/CSS</h3>
+      <p>Méthode de déploiement des fichiers :</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Déploiement via WebStorm ou client FTP vers le répertoire <code class="font-monospace">/var/www/html/</code></li>
+        <li class="list-group-item">Configuration des permissions : <code class="font-monospace">sudo chown -R www-data:www-data /var/www/html/</code></li>
+        <li class="list-group-item">Activation du Virtual Host : <code class="font-monospace">sudo a2ensite sae.local</code></li>
+        <li class="list-group-item">Redémarrage Apache : <code class="font-monospace">sudo systemctl reload apache2</code></li>
+        <li class="list-group-item">Vérification dans le navigateur à l'adresse <code class="font-monospace">http://localhost/</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <img src="/images/apache-status.png" alt="Installation Apache" class="img-fluid rounded shadow">
+    </div>
+    <div class="col-md-6">
+      <img src="/images/web-apache.png" alt="Déploiement WebStorm" class="img-fluid rounded shadow">
+    </div>
+  </div>
+</main>
+
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <p>&copy; 2025 IUT Paris Rives de Seine – Département Informatique</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
